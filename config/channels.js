@@ -6,8 +6,8 @@
  * Ordered by descending stability.
  */
 module.exports.channels = [
-  'stable',
-  'rc',
-  'beta',
-  'alpha'
+  'mav-stable',
+  'agl-mav-stable',
+  'mav-staging',
+  'agl-mav-staging'
 ];

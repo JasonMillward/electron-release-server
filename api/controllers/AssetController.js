@@ -213,10 +213,15 @@ module.exports = {
         } else {
           hashPromise = Promise.resolve('');
         }
+        sails.log.debug('Hash promise');
+        sails.log.debug(uploadedFile.fd);
 
         hashPromise
           .then(function(fileHash) {
             // Create new instance of model using data from params
+
+            sails.log.debug('Asset.create');
+            sails.log.debug(uploadedFile.fd);
             Asset
               .create(_.merge({
                 name: uploadedFile.filename,
@@ -226,7 +231,7 @@ module.exports = {
                 size: uploadedFile.size
               }, data))
               .exec(function created(err, newInstance) {
-
+                sails.log.debug('exec');
                 // Differentiate between waterline-originated validation errors
                 // and serious underlying issues. Respond with badRequest if a
                 // validation error is encountered, w/ validation info.
@@ -239,6 +244,7 @@ module.exports = {
                     Asset.subscribe(req, newInstance);
                     Asset.introduce(newInstance);
                   }
+                  sails.log.debug('publishCreate');
                   Asset.publishCreate(newInstance, !req.options.mirror && req);
                 }
 

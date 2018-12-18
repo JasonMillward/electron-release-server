@@ -12,6 +12,12 @@ services:
       DB_PASSWORD: secret
       TOKEN_SECRET: change_me_in_production
       APP_URL: 'localhost:5000'
+      S3_API_KEY: ''
+      S3_API_SECRET: ''
+      S3_BUCKET: ''
+      S3_REGION: 'ap-southeast-2'
+      S3_ENDPOINT: ''
+      S3_TOKEN: ''
     depends_on:
       - db
     ports:
@@ -22,3 +28,4 @@ services:
     environment:
       POSTGRES_PASSWORD: secret
       POSTGRES_USER: releaseserver
+

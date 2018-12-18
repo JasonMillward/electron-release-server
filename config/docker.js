@@ -38,7 +38,7 @@ module.exports = {
     token_secret: process.env['TOKEN_SECRET'],
   },
   files: {
-    dirname: process.env['ASSETS_PATH'] || '/tmp/',
+    dirname: process.env['ASSETS_PATH'] || '/releases/',
   },
   session: {
     // Recommended: 63 random alpha-numeric characters
